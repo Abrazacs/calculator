@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Калькулятор</title>
+</head>
+<body>
+
+<form th:action="@{/}" th:object=${expression} method="POST">
+    <input type="text" th:field="*{value}" placeholder="Math expression">
+    <button type="submit">Calculate</button>
+</form>
+
+<div th:if="${result.value !=null}">
+    <p> Значение: <span th:text="${result.value}"/> </p>
+</div>
+
+<div th:if="${appError.code !=null}">
+    <p> Ошибка: <span th:text="${appError.message}"/> </p>
+</div>
+
+</body>
+</html>
